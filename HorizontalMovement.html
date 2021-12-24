@@ -1,0 +1,35 @@
+<html>
+
+<head>
+    <script>
+        yon = 1;
+        var x, y;
+        zaman = null;
+
+        function hareket() {
+            obje = document.getElementById("top1");
+            x = parseInt(obje.style.left);
+            if (yon == 1 && x >= 250) yon = -1;
+            if (yon == -1 && x <= 10) yon = 1;
+            obje.style.left = x + yon + "px";
+        }
+    </script>
+</head>
+
+<body>
+    <!-- Aşa görmüş olduğun kod ise. div e style atamış ve demişki: genişliği 50pixel olsun ve görünürlüğü görünmez olsun. -->
+    <div id="top1" style="position:absolute;width:50px;visibility:hidden">
+        <!-- burada ise bize sınav sorusunda adımız yazılan bir haraket istediği için adımızı yazdık. -->
+        <img src="top.gif" alt="top" height="150px">
+    </div>
+    <script>
+        obje = document.getElementById("top1"); // obje olarak id sı top1 olan divi alıyor ve böylelikle
+        obje.style.visibility = "visible"; // görünmezlikten görünür hale getiriyor.
+        obje.style.left = 10 + "px"; // soldan 10 pixel sağ geliyor.
+        obje.style.top = 100 + "px"; // yukarıdan 100 pixel aşa geliyor.
+        clearInterval(zaman); // fonsiyonu temizliyor. hatalardan kaçınmak için baştan başlıyor gibi düşün.
+        zaman = setInterval(hareket, 10); // 10 hızında haraket fonsiyonunu çalıştırıyor.
+    </script>
+</body>
+
+</html>

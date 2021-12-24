@@ -1,0 +1,35 @@
+<html>
+
+<head>
+    <script>
+        yon = 1;
+        var x, y;
+        zaman = null;
+
+        function hareket() {
+            obje = document.getElementById("top1");
+            x = parseInt(obje.style.left);
+            y = parseInt(obje.style.top);
+            if (yon == 1 && x >= 250) yon = -1;
+            if (yon == -1 && x <= 10) yon = 1;
+            obje.style.left = x + yon + "px";
+            obje.style.top = y + yon + "px";
+        }
+    </script>
+</head>
+
+<body>
+    <div id="top1" style="position:absolute;width:50px;visibility:hidden">
+        <img src="top.gif" alt="top" height="150px">
+    </div>
+    <script>
+        obje = document.getElementById("top1");
+        obje.style.visibility = "visible";
+        obje.style.left = 10 + "px";
+        obje.style.top = 100 + "px";
+        clearInterval(zaman);
+        zaman = setInterval(hareket, 10);
+    </script>
+</body>
+
+</html>
